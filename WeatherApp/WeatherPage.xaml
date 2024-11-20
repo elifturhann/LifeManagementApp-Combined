@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LifeManagementApp1.ViewModel"
+             x:Class="LifeManagementApp1.WeatherPage"
+             x:DataType="vm:WeatherViewModel" 
+             BackgroundColor="#FF476FE8">
+    <ContentPage.BindingContext>
+        <vm:WeatherViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Image Source="dotnet_bot.png" HeightRequest="185" Aspect="AspectFit"
+                   SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label Text="Weather App " FontSize="24" Style="{StaticResource Headline}" 
+                   SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry Placeholder="Enter city" PlaceholderColor="White" TextColor="White"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding City}" />
+
+            <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   Text="{Binding WeatherData.Description, StringFormat='Description: {0}'}" />
+
+            <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   Text="{Binding WeatherData.Temp, StringFormat='Temp: {0}°C'}" />
+
+            <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   Text="{Binding WeatherData.WindSpeed, StringFormat='Wind: {0}m/s'}" />
+
+            <Image WidthRequest="50" HeightRequest="50" Source="{Binding IconUrl}" />
+
+            <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   Text="{Binding AlertMessage}" TextColor="#FF9D2222" FontAttributes="Bold" />
+
+            <Button Text="Get Weather" Command="{Binding GetWeatherCommand}" 
+                    HorizontalOptions="Center" BackgroundColor="#FFA826F8" TextColor="White" />
+
+                 <Button Text="Go Back"
+                    Clicked="GoBackToLanding" 
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="White"
+                    Margin="0,260,0,0"
+                    VerticalOptions="End" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

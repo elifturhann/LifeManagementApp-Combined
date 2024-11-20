@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LifeManagementApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LifeManagementApp1"
+    Shell.FlyoutBehavior="Disabled"
+    Title="LifeManagementApp1">
+
+   
+<FlyoutItem Title="Home"> 
+    <Tab>
+        <ShellContent Title="Landing Page" ContentTemplate="{DataTemplate local:LandingPage}" Route="LandingPage" />
+    </Tab>
+</FlyoutItem>
+<FlyoutItem Title="Weather"> 
+    <Tab>
+        <ShellContent Title="Weather Page" ContentTemplate="{DataTemplate local:WeatherPage}" Route="Weather" />
+    </Tab>
+</FlyoutItem>
+
+<FlyoutItem Title="ToDo"> 
+    <Tab>
+        <ShellContent Title="ToDo Page" ContentTemplate="{DataTemplate local:TodoPage}" Route="ToDo" />
+    </Tab>
+</FlyoutItem>
+        
+
+</Shell>
